@@ -398,7 +398,7 @@
   <header class="site-head">
     <span class="logo" id="homeLink">Jeong Jihyun</span>
     <nav class="site-nav">
-      <a href="#home" id="homeNav">Home</a><a href="#s-about">About</a><a href="#s-projects">Projects</a><a href="#s-skills">Skills</a><a href="#s-contact">Contact</a>
+      <a href="#home" id="homeNav">Home</a><a href="#s-about">About</a><a href="#s-projects">Projects</a><a href="#s-skills">Skills</a>
       <button type="button" class="editbtn" id="editBtn" title="내용 편집">편집</button>
     </nav>
   </header>
@@ -878,18 +878,7 @@
       ]
     }
   ],
-  "contacts": [
-    {
-      "label": "Email",
-      "value": "swp313@gmail.com",
-      "href": ""
-    },
-    {
-      "label": "Mobile",
-      "value": "010-5579-2209",
-      "href": ""
-    }
-  ],
+  "contacts": [],
   "footer": "© Jeong Jihyun"
 }
 </script>
@@ -926,7 +915,7 @@
     <p class="eyebrow" data-f="hero.eyebrow">${esc(d.hero.eyebrow)}</p>
     <h1 data-f="hero.title">${nl(d.hero.title)}</h1>
     <p class="lead" data-f="hero.lead">${esc(d.hero.lead)}</p>
-    <div class="cta"><a class="btn primary" href="#s-projects"><span data-f="hero.btn1">${esc(d.hero.btn1)}</span></a><a class="btn" href="#s-contact"><span data-f="hero.btn2">${esc(d.hero.btn2)}</span></a></div>
+    <div class="cta"><a class="btn primary" href="#s-projects"><span data-f="hero.btn1">${esc(d.hero.btn1)}</span></a></div>
   </section>
   <section class="sec" id="s-about">
     <div class="sec-head"><h2>About</h2><p>소개 · 경력 · 학력</p></div>
@@ -959,11 +948,6 @@
     <div class="sec-head"><h2>Skills</h2><p>다루는 도구</p></div>
     <div class="skills" data-list="skills">${d.skills.map(s => `<div class="sgroup" data-item><h4 data-f="name">${esc(s.name)}</h4>${tagsHtml(s.tags)}</div>`).join('')}</div>
     <div class="rowtools"><button type="button" data-add="skills">+ 그룹 추가</button><button type="button" data-del="skills">− 마지막 그룹 삭제</button></div>
-  </section>
-  <section class="sec" id="s-contact">
-    <div class="sec-head"><h2>Contact</h2><p>연락처와 링크</p></div>
-    <div class="contact" data-list="contacts">${d.contacts.map(c => `<a class="crow" data-item href="${esc(c.href || '#')}" ${c.href && !/^mailto:/.test(c.href) ? 'target="_blank" rel="noopener"' : ''}><span data-f="label">${esc(c.label)}</span><b data-f="value">${esc(c.value)}</b><small class="href" data-f="href">${esc(c.href || '')}</small></a>`).join('')}</div>
-    <div class="rowtools"><button type="button" data-add="contacts">+ 연락처 추가</button><button type="button" data-del="contacts">− 마지막 연락처 삭제</button></div>
   </section>`;
     $('footText').textContent = d.footer; $('footText').setAttribute('data-f', 'footer');
     // 링크 주소가 비어 있으면 표시 숨김 (편집 모드에서만 보임)
